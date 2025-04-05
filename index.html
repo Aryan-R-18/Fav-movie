@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/netflix.svg">
     <script src="https://kit.fontawesome.com/ac3ec5a928.js" crossorigin="anonymous"></script>
+
+
 </head>
 <body>
 
@@ -27,6 +29,9 @@
                 
             </ul>
         </nav>
+
+        <button id="theme-toggle" class="theme-btn">🌙</button>
+
     </header>
     <main>
         <section class="hero">
@@ -34,8 +39,15 @@
             <p>Stream only on Netflix</p>
             <div class="movie-banner">
                 <img src="images/poster.jpg" alt="Featured Movie Poster">
+        
+                <!-- Countdown Timer -->
+                <div class="countdown-timer">
+                    <h3>Season 5 Release In:</h3>
+                    <div id="timer">Loading...</div>
+                </div>
             </div>
         </section>
+        
         <section class="movie-grid">
             <div class="movie">
                 <img src="images/s1.jpg" alt="Movie">
@@ -63,6 +75,63 @@
         <p>Designed with &hearts; by ArnR</p>
     </footer>
     
+
+    <script>
+        const toggleBtn = document.getElementById("theme-toggle");
+        const currentTheme = localStorage.getItem("theme");
+        const countdownEl = document.querySelector('.countdown-timer'); // ✅ Renamed
+    
+        // Apply saved theme
+        if (currentTheme === "light") {
+            document.body.classList.add("light-mode");
+            toggleBtn.textContent = "🌞";
+            if (countdownEl) countdownEl.style.color = "red"; // or "black"
+        }
+    
+        toggleBtn.addEventListener("click", () => {
+            document.body.classList.toggle("light-mode");
+            let theme = "dark";
+    
+            if (document.body.classList.contains("light-mode")) {
+                toggleBtn.textContent = "🌞";
+                theme = "light";
+                if (countdownEl) countdownEl.style.color = "red";
+            } else {
+                toggleBtn.textContent = "🌙";
+                if (countdownEl) countdownEl.style.color = "white";
+            }
+    
+            localStorage.setItem("theme", theme);
+        });
+    </script>
+    
+    <script>
+        const updateCountdown = () => {
+            const releaseDate = new Date("November 6, 2025 00:00:00").getTime();
+            const now = new Date().getTime();
+            const gap = releaseDate - now;
+    
+            const second = 1000;
+            const minute = second * 60;
+            const hour = minute * 60;
+            const day = hour * 24;
+    
+            const d = Math.floor(gap / day);
+            const h = Math.floor((gap % day) / hour);
+            const m = Math.floor((gap % hour) / minute);
+            const s = Math.floor((gap % minute) / second);
+    
+            const timer = document.getElementById('timer');
+            if (timer) {
+                timer.innerHTML = `${d}d ${h}h ${m}m ${s}s`;
+            }
+        };
+    
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // initial call
+    </script>
+    
+        
 
     
 </body>

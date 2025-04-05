@@ -19,6 +19,9 @@
                 <li><a href="cast.html">Cast</a></li>
             </ul>
         </nav>
+
+        <button id="theme-toggle" class="theme-btn">🌙</button>
+
     </header>
 
     <main>
@@ -128,6 +131,32 @@
     <footer>
         <p>Designed with &hearts; by ArnR</p>
     </footer>
+
+    <script>
+        const toggleBtn = document.getElementById("theme-toggle");
+        const currentTheme = localStorage.getItem("theme");
+    
+        // Apply saved theme
+        if (currentTheme === "light") {
+            document.body.classList.add("light-mode");
+            toggleBtn.textContent = "🌞";
+        }
+    
+        toggleBtn.addEventListener("click", () => {
+            document.body.classList.toggle("light-mode");
+            let theme = "dark";
+    
+            if (document.body.classList.contains("light-mode")) {
+                toggleBtn.textContent = "🌞";
+                theme = "light";
+            } else {
+                toggleBtn.textContent = "🌙";
+            }
+    
+            localStorage.setItem("theme", theme);
+        });
+    </script>
+    
     
 </body>
 </html>

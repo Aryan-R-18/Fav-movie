@@ -47,7 +47,9 @@ nav ul li a {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    position: relative; 
 }
+
 
 .movie-banner img {
     width: 80%;
@@ -114,4 +116,62 @@ footer p {
     font-family: 'Pirata One', cursive;
     color: #ff0000;
     letter-spacing: 1px;
+}
+
+/*dark theme*/
+.theme-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    margin-left: 20px;
+    transition: transform 0.3s;
+}
+
+.theme-btn:hover {
+    transform: scale(1.2);
+}
+
+/* Light Theme Classes */
+body.light-mode {
+    background-color: #f5f5f5;
+    color: #222;
+}
+
+body.light-mode .season,
+body.light-mode .episode-description,
+body.light-mode header,
+body.light-mode footer {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #111;
+}
+
+body.light-mode nav ul li a {
+    color: #111;
+}
+
+body.light-mode nav ul li a:hover {
+    color: #ff0000;
+}
+/*Timer*/
+
+.countdown-timer {
+    position: absolute;
+    bottom: 20px;   /* You can change to top: 20px if you prefer */
+    right: 30px;
+    background: rgba(255, 255, 255, 0.2); /* Transparent white */
+    padding: 12px 18px;
+    border-radius: 10px;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    box-shadow: 0 0 8px #000;
+    backdrop-filter: blur(4px); /* Optional glass effect */
+}
+
+#timer {
+    font-size: 16px;
+    margin-top: 4px;
+    font-weight: bold;
 }

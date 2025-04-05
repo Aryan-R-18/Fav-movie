@@ -173,3 +173,41 @@ footer p {
     color: #ff0000;
     letter-spacing: 1px;
 }
+
+/*Dark Theme*/
+.theme-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    margin-left: 20px;
+    transition: transform 0.3s;
+}
+
+.theme-btn:hover {
+    transform: scale(1.2);
+}
+
+/* Light Theme Classes */
+body.light-mode {
+    background-color: #f5f5f5;
+    color: #222;
+}
+
+body.light-mode .season,
+body.light-mode .episode-description,
+body.light-mode header,
+body.light-mode footer {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #111;
+}
+
+body.light-mode nav ul li a {
+    color: #111;
+}
+
+body.light-mode nav ul li a:hover {
+    color: #ff0000;
+}
+
