@@ -42,7 +42,7 @@
         
                 <!-- Countdown Timer -->
                 <div class="countdown-timer">
-                    <h3>Season 5 Release In:</h3>
+                    <h3>Season 5 Release In 🎉:</h3>
                     <div id="timer">Loading...</div>
                 </div>
             </div>
@@ -70,6 +70,11 @@
             </div>
         </section>
     </main>
+
+    <div id="upside-overlay">
+        <p>Welcome to the Upside Down...</p>  <!--For upside down effect-->
+    </div>
+    
 
     <footer>
         <p>Designed with &hearts; by ArnR</p>
@@ -130,6 +135,33 @@
         setInterval(updateCountdown, 1000);
         updateCountdown(); // initial call
     </script>
+
+
+    <script>
+        let typed = '';
+        const target = 'upsidedown';
+        const overlay = document.getElementById("upside-overlay");
+
+        document.addEventListener("keydown", (e) => {
+            typed += e.key.toLowerCase();
+
+            
+            typed = typed.slice(-20);
+
+            if (typed.includes(target)) {
+                document.body.classList.add("upside-down");
+                overlay.style.opacity = 1;
+
+                setTimeout(() => {
+                    document.body.classList.remove("upside-down");
+                    overlay.style.opacity = 0;
+                }, 5000); // effect lasts 5 seconds
+
+                typed = ''; // reset
+            }
+        });
+    </script>
+
     
         
 
